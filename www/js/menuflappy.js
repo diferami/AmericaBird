@@ -3,7 +3,7 @@ var sonidofondo, sonidoboom, sonidoexplosion;
 var Menu = {
 
 	preload : function (){
-		juego.stage.backgroundColor = '#fff';
+		juego.stage.backgroundColor = '#ff000e';
 		juego.load.image('logo', 'img/logo1.png');
 		juego.load.image('boton', 'img/btn.png');
 
@@ -24,10 +24,10 @@ var Menu = {
 		//var textoTitulo = juego.add.text(juego.width/2, juego.height/2 - 150, 'Flappy Bird', {font : "bold 30px sans-serif", fill:"black", align:"ceter"});
 		//textoTitulo.anchor.setTo(0.5);
 
-		var textoiniciar = juego.add.text(juego.width/2, 215, 'Iniciar Juego', {font : "bold 24px sans-serif", fill:"black", align:"ceter"});
+		var textoiniciar = juego.add.text(juego.width/2, 215, 'Iniciar Juego', {font : "bold 24px sans-serif", fill:"white", align:"ceter"});
 		textoiniciar.anchor.setTo(0.5);
 
-		var txtby = juego.add.text(juego.width/2, 350, 'by diferami@gmail.com, 2018', {font : "12px sans-serif", fill:"black", align:"ceter"});
+		var txtby = juego.add.text(juego.width/2, 350, 'by diferami@gmail.com, 2018', {font : "12px sans-serif", fill:"white", align:"ceter"});
 		txtby.anchor.setTo(0.5);
 
 		sonidofondo     = juego.add.audio('sonido-fondo');

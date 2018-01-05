@@ -33,7 +33,8 @@ var Jugar = {
 		
 		saltar = juego.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		saltar.onDown.add(this.saltar, this);
-		juego.input.mouse.capture = true;
+		
+		
 
 		juego.physics.arcade.enable(flappy);
 		flappy.body.collideWorldBounds = true;
@@ -48,9 +49,11 @@ var Jugar = {
 
 	update : function (){
 	
-		if (juego.input.activePointer.leftButton.isDown){
-			this.saltar();
+		if(juego.input.activePointer.isDown){
+    		//	if(game.input.x > 500){ // Se comprueban las coordenadas del click
+           	this.saltar();
 		}
+		
 
 		if (flappy.inworld==false){
 			//game over
