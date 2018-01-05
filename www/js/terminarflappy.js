@@ -2,7 +2,7 @@ var Terminar = {
 
 	preload : function (){
 		if(puntos==-1) puntos = 0;
-		juego.stage.backgroundColor = '#fff';
+		juego.stage.backgroundColor = '#ff000e';
 		juego.load.image('boton', 'img/FlapPyBird/sprites/btn.png');
 
 		if (puntos>10){
@@ -19,7 +19,7 @@ var Terminar = {
 		var boton = this.add.button(juego.width/2,280,'boton', this.inciar_juego, this);
 		boton.anchor.setTo(0.5);
 		if (puntos>10){
-			var textotecla = juego.add.text(juego.width/2, 10, '#GraciasTecla', {font : "bold 16px sans-serif", fill:"black", align:"ceter"});
+			var textotecla = juego.add.text(juego.width/2, 10, '#GraciasTecla', {font : "bold 16px sans-serif", fill:"white", align:"ceter"});
 			textotecla.anchor.setTo(0.5);
 		}
 		var jugadorlogo = juego.add.sprite(juego.width/2 - 50, 15, 'jugadorlogo');
@@ -29,17 +29,21 @@ var Terminar = {
 		//textoTitulo.anchor.setTo(0.5);
 
 		
-		var textopuntos = juego.add.text(juego.width/2, 180, 'Total Puntos : '+ puntos.toString(), {font : "bold 20px sans-serif", fill:"black", align:"ceter"});
+		var textopuntos = juego.add.text(juego.width/2, 180, 'Total Puntos : '+ puntos.toString(), {font : "bold 20px sans-serif", fill:"white", align:"ceter"});
 		textopuntos.anchor.setTo(0.5);
 
-		var textoiniciar = juego.add.text(juego.width/2, 210, 'Juego Terminado', {font : "bold 22px sans-serif", fill:"black", align:"ceter"});
+		var textoiniciar = juego.add.text(juego.width/2, 210, 'Juego Terminado', {font : "bold 22px sans-serif", fill:"white", align:"ceter"});
 		textoiniciar.anchor.setTo(0.5);
+
+		var txtby = juego.add.text(juego.width/2, 350, 'by diferami@gmail.com, 2018', {font : "12px sans-serif", fill:"white", align:"ceter"});
+		txtby.anchor.setTo(0.5);
 
 
 	},
 
 	inciar_juego : function (){
 		puntos = -1;
+		sonidofondo.play();
 		juego.state.start('Jugar');
 	}
 

@@ -7,12 +7,11 @@ var timer;
 var puntos=-1;
 var txtPuntos;
 
+
 var Jugar = {
 
 	preload : function (){
-		//juego.load.image('fondo', 'img/FlapPyBird/sprites/bg.jpeg');
 		juego.load.image('fondo', 'img/fondo3.jpg');
-		//juego.load.spritesheet('pajaro', 'img/FlapPyBird/sprites/pajaro.png',43,30);
 		juego.load.spritesheet('pajaro', 'img/diablos40x200.png',50,40);
 		juego.load.image('tubo', 'img/tubo.png');
 
@@ -28,14 +27,13 @@ var Jugar = {
 		tubos.enableBody=true;
 		tubos.createMultiple(20, 'tubo');
 
-
-
 		flappy = juego.add.sprite(100,245,'pajaro');
 		flappy.animations.add('vuelo',[0, 1, 2], 10, true);
 		flappy.anchor.setTo(0, 0.5)
 		
 		saltar = juego.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		saltar.onDown.add(this.saltar, this);
+		juego.input.mouse.capture = true;
 
 		juego.physics.arcade.enable(flappy);
 		flappy.body.collideWorldBounds = true;
@@ -49,6 +47,11 @@ var Jugar = {
 	},
 
 	update : function (){
+	
+		if (juego.input.activePointer.leftButton.isDown){
+			this.saltar();
+		}
+
 		if (flappy.inworld==false){
 			//game over
 			juego.state.start('Terminar');
@@ -66,7 +69,7 @@ var Jugar = {
 			}
 		}
 
-		//juego.physics.arcade.overlap(flappy, tubos, this.getColision, null, this); 
+		juego.physics.arcade.overlap(flappy, tubos, this.getColision, null, this); 
 
 		flappy.animations.play('vuelo');
 
@@ -118,14 +121,14 @@ var Jugar = {
 		tubos.forEachAlive(function(t){
 			t.body.velocity.x = 0;
 		}, this);
-
+		
+		sonidofondo.stop();
+		sonidoboom.play();
 		juego.state.start('Terminar');
 		
 	}
 
 
-
-	
 
 
 };
